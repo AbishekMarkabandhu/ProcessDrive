@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      body {
+        background-color: #b3b6b7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+      }
+      h1 {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        color: white;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+          1px 1px 0 #000;
+      }
+      .container {
+        display: flex;
+        border: 1px solid red;
+        border-radius: 2px;
+        width: 600px;
+        padding: 20px;
+        background-color: ghostwhite;
+      }
+      .input-section {
+        flex: 1;
+        background-color: lightgreen;
+        padding: 20px;
+        text-align: center;
+        border: 1px solid green;
+      }
+      .output-section {
+        flex: 1;
+        padding: 20px;
+        text-align: center;
+      }
+      input {
+        width: 80%;
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 3px;
+        margin: 10px;
+      }
+      button {
+        cursor: pointer;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        margin: 5px;
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: olivedrab;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      button:hover {
+        background-color: olive;
+        color: white;
+      }
+      h3 {
+        margin-top: 20px;
+      }
+      .output-section {
+        border: 1px solid black;
+        background-color: #ecf0f1;
+        font-size: 30px;
+      }
+      #result {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        color: black;
+        text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff,
+          1px 1px 0 #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-section">
+        <h1>Multi-Calculator</h1>
+        <div class="main">
+          <input id="one" type="number" placeholder="Enter the Input 1" /><br />
+          <input
+            id="two"
+            type="number"
+            placeholder="Enter the Input 2"
+          /><br /><br /><br />
+        </div>
+        <div>
+          <button onclick="performOperation('add')">Add</button>
+          <button onclick="performOperation('sub')">Sub</button>
+          <button onclick="performOperation('mul')">Mul</button>
+          <button onclick="performOperation('div')">Div</button>
+          <button onclick="performOperation('mod')">Mod</button>
+          <button onclick="performOperation('power')">Power</button>
+        </div>
+      </div>
+      <div class="output-section">
+        <h3 id="result">Result:</h3>
+        <button onclick="clearResult()">Clear</button>
+      </div>
+    </div>
+
+    <script>
+      function performOperation(operation) {
+        const one = parseFloat(document.getElementById("one").value);
+        const two = parseFloat(document.getElementById("two").value);
+        let result;
+
+        if (isNaN(one) || isNaN(two)) {
+          result = "Enter the valid number";
+        } else {
+          switch (operation) {
+            case "add":
+              result = one + two;
+              break;
+            case "sub":
+              result = one - two;
+              break;
+            case "mul":
+              result = one * two;
+              break;
+            case "power":
+              result = one ** two;
+              break;
+            case "div":
+              if (two === 0) {
+                result = "can't divide this number";
+              } else {
+                result = one / two;
+              }
+              break;
+            case "mod":
+              if (two === 0) {
+                result = "can't modulate this number";
+              } else {
+                result = one % two;
+              }
+              break;
+            default:
+              result = "unknown process";
+          }
+        }
+        document.getElementById("result").textContent = "Result: " + result;
+      }
+
+      function clearResult() {
+        document.getElementById("result").textContent = "Result:";
+      }
+    </script>
+  </body>
+</html>
