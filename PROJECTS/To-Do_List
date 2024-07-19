@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="design.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="full">
+        <h1>TO-DO LIST</h1>
+        <div class="inp">
+          <input type="text" id="textinp" placeholder="Add/Enter the Text" />
+          <button onclick="addText()">Add</button>
+        </div>
+        <ul id="textlist"></ul>
+      </div>
+    </div>
+    <script>
+      function addText() {
+        const txtinp = document.getElementById("textinp");
+        const inp = txtinp.value.trim();
+
+        if (inp === "") {
+          alert("Please enter some text into the list.");
+          return;
+        }
+        const txtlist = document.getElementById("textlist");
+        const li = document.createElement("li");
+        li.textContent = inp;
+
+        // const CmpBtn = document.createElement("button");
+        // CmpBtn.textContent = "Complete";
+        // CmpBtn.onclick = function () {
+        //   li.classList.toggle("completed");
+        // };
+
+        const dBtn = document.createElement("button");
+        dBtn.textContent = "Delete";
+        dBtn.onclick = function () {
+          txtlist.removeChild(li);
+        };
+
+        // li.appendChild(CmpBtn);
+        li.appendChild(dBtn);
+        txtlist.appendChild(li);
+
+        txtinp.value = "";
+      }
+    </script>
+  </body>
+</html>
