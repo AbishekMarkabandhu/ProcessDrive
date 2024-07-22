@@ -3,147 +3,339 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Static Page</title>
+    <title>Static Website</title>
     <style>
       body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
       }
-      nav {
+
+      header {
         background-color: #333;
-        overflow: hidden;
-        text-align: right; /* Align navigation links to the right */
+        color: #fff;
+        padding: 1rem;
       }
-      nav a {
-        display: inline-block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-      nav a:hover {
-        background-color: #ddd;
-        color: black;
-      }
-      section {
-        padding: 20px;
-      }
-      #front-page {
-        background-color: #f4f4f4;
-        height: 50vh;
+
+      nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
-      #front-page div {
-        flex: 1;
-        padding: 20px;
+
+      .nav-left {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
       }
+
+      .nav-left li {
+        margin-right: 1rem;
+      }
+
+      .nav-left li a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .nav-right {
+        font-size: 1.2rem;
+      }
+
+      .home {
+        background-image: url("front.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        text-align: center;
+      }
+
+      .home-content {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 2rem;
+        border-radius: 10px;
+      }
+
+      .home-content button {
+        margin: 0.5rem;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #about {
+        background-color: beige;
+      }
+      #about p{
+        text-align: left;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 23px;
+      }
+      #contact {
+        background-color: beige;
+      }
+
       #about,
       #projects,
-      #portfolio,
       #contact {
-        background-color: #fff;
-        border-top: 1px solid #ddd;
+        padding: 2rem;
+        text-align: center;
       }
+
+      .project-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .project-block {
+        width: 30%;
+        margin: 1rem 0;
+        padding: 1rem;
+        background-color: #f4f4f4;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .project-block img {
+        width: 100%;
+        border-radius: 5px;
+      }
+
+      .contact-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .contact-form {
+        border: 1px solid black;
+        background-color: gainsboro;
+      }
+      .contact-form,
+      .contact-info {
+        width: 45%;
+      }
+
+      .contact-form label {
+        display: block;
+        margin: 0.5rem 0 0.2rem;
+      }
+
+      .contact-form input {
+        width: 90%;
+        padding: 0.3rem 0.1rem;
+        margin-bottom: 1rem;
+        border: 1px solid #000000;
+        border-radius: 5px;
+      }
+
+      .contact-form button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        border: 1px solid #000000;
+      }
+
       footer {
         background-color: #333;
-        color: #f2f2f2;
+        color: #fff;
         text-align: center;
-        padding: 10px 0;
+        padding: 0.3rem;
         width: 100%;
         bottom: 0;
       }
-      #profile {
-        max-width: 100%;
-        height: auto;
+
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        .nav-left {
+          flex-direction: column;
+        }
+
+        .home-content {
+          width: 90%;
+        }
+
+        .project-block {
+          width: 80%;
+        }
+
+        .contact-form,
+        .contact-info {
+          width: 90%;
+          margin: 1rem 0;
+        }
       }
     </style>
   </head>
   <body>
-    <nav>
-      <a href="#front-page">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <header>
+      <nav>
+        <ul class="nav-left">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-right">@A'M</div>
+      </nav>
+    </header>
 
-    <section id="front-page">
-      <div>
-        <h4 id="one">Hi I'M</h4>
-        <h1 id="two">ABISHEK MARKABANDHU</h1>
-        <h3 id="three">I'M a Front-End Developer</h3>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-            occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.
-          </p>
-    </div>
-      <div>
-        <img src="profile.png" alt="Profile Image" id="profile" />
+    <section id="home" class="home">
+      <div class="home-content">
+        <h1>Welcome to My Website</h1>
+        <button>Login</button>
+        <button>Follow</button>
       </div>
     </section>
 
     <section id="about">
       <h2>About</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </p>
+      <ul>
+        <li>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Semper
+            risus in hendrerit gravida rutrum quisque non tellus. Donec
+            adipiscing tristique risus nec feugiat in fermentum. Donec massa
+            sapien faucibus et molestie ac feugiat sed. Eget magna fermentum
+            iaculis eu. Sed nisi lacus sed viverra tellus. Quam vulputate
+            dignissim suspendisse in est ante. Mattis pellentesque id nibh
+            tortor. Et pharetra pharetra massa massa ultricies. Volutpat blandit
+            aliquam etiam erat.
+          </p>
+        </li>
+        <li>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Semper
+            risus in hendrerit gravida rutrum quisque non tellus. Donec
+            adipiscing tristique risus nec feugiat in fermentum. Donec massa
+            sapien faucibus et molestie ac feugiat sed. Eget magna fermentum
+            iaculis eu. Sed nisi lacus sed viverra tellus. Quam vulputate
+            dignissim suspendisse in est ante. Mattis pellentesque id nibh
+            tortor. Et pharetra pharetra massa massa ultricies. Volutpat blandit
+            aliquam etiam erat.
+          </p>
+        </li>
+        <li>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Semper
+            risus in hendrerit gravida rutrum quisque non tellus. Donec
+            adipiscing tristique risus nec feugiat in fermentum. Donec massa
+            sapien faucibus et molestie ac feugiat sed. Eget magna fermentum
+            iaculis eu. Sed nisi lacus sed viverra tellus. Quam vulputate
+            dignissim suspendisse in est ante. Mattis pellentesque id nibh
+            tortor. Et pharetra pharetra massa massa ultricies. Volutpat blandit
+            aliquam etiam erat.
+          </p>
+        </li>
+        <li>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Semper
+            risus in hendrerit gravida rutrum quisque non tellus. Donec
+            adipiscing tristique risus nec feugiat in fermentum. Donec massa
+            sapien faucibus et molestie ac feugiat sed. Eget magna fermentum
+            iaculis eu. Sed nisi lacus sed viverra tellus. Quam vulputate
+            dignissim suspendisse in est ante. Mattis pellentesque id nibh
+            tortor. Et pharetra pharetra massa massa ultricies. Volutpat blandit
+            aliquam etiam erat.
+          </p>
+        </li>
+        <li>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Semper
+            risus in hendrerit gravida rutrum quisque non tellus. Donec
+            adipiscing tristique risus nec feugiat in fermentum. Donec massa
+            sapien faucibus et molestie ac feugiat sed. Eget magna fermentum
+            iaculis eu. Sed nisi lacus sed viverra tellus. Quam vulputate
+            dignissim suspendisse in est ante. Mattis pellentesque id nibh
+            tortor. Et pharetra pharetra massa massa ultricies. Volutpat blandit
+            aliquam etiam erat.
+          </p>
+        </li>
+        <li>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Semper
+            risus in hendrerit gravida rutrum quisque non tellus. Donec
+            adipiscing tristique risus nec feugiat in fermentum. Donec massa
+            sapien faucibus et molestie ac feugiat sed. Eget magna fermentum
+            iaculis eu. Sed nisi lacus sed viverra tellus. Quam vulputate
+            dignissim suspendisse in est ante. Mattis pellentesque id nibh
+            tortor. Et pharetra pharetra massa massa ultricies. Volutpat blandit
+            aliquam etiam erat.
+          </p>
+        </li>
+      </ul>
     </section>
 
     <section id="projects">
       <h2>Projects</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </p>
-    </section>
-
-    <section id="portfolio">
-      <h2>Portfolio</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </p>
+      <div class="project-grid">
+        <div class="project-block">
+          <img src="Project1.webp" alt="Project 1" />
+          <p>Project 1</p>
+        </div>
+        <div class="project-block">
+          <img src="Project2.webp" alt="Project 2" />
+          <p>Project 2</p>
+        </div>
+        <div class="project-block">
+          <img src="Project3.webp" alt="Project 3" />
+          <p>Project 3</p>
+        </div>
+        <div class="project-block">
+          <img src="Project4.webp" alt="Project 4" />
+          <p>Project 4</p>
+        </div>
+        <div class="project-block">
+          <img src="Project5.webp" alt="Project 5" />
+          <p>Project 5</p>
+        </div>
+        <div class="project-block">
+          <img src="Project6.webp" alt="Project 6" />
+          <p>Project 5</p>
+        </div>
+      </div>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" /><br /><br />
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" /><br /><br />
-        <label for="message">Message:</label>
-        <textarea id="message" name="message"></textarea><br /><br />
-        <input type="submit" value="Submit" />
-      </form>
+      <div class="contact-container">
+        <div class="contact-form">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" name="first-name" />
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" name="last-name" />
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" />
+          <button type="submit">Send</button>
+        </div>
+        <div class="contact-info">
+          <p>1234 Street Name</p>
+          <p>City, State, ZIP</p>
+          <p>Country</p>
+        </div>
+      </div>
     </section>
 
     <footer>
-      <p>&copy; 2024 My Website</p>
+      <p>&copy; 2004 @ABISHEKMARKABANDHU™️. All rights reserved.</p>
     </footer>
   </body>
 </html>
